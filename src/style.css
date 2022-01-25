@@ -208,7 +208,7 @@ article {
   background-color: rgba(36, 155, 32, 0.568);
   position: absolute;
   bottom: 150px;
-  left: 0px;
+  left: 0;
   display: none;
   justify-content: center;
   align-items: center;

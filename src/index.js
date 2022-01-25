@@ -48,12 +48,11 @@ function updateDomAndLocalStorage() {
 
 function removeScore() {
   const removeButton = document.querySelector('.refresh');
-    removeButton.addEventListener('click', () => {
-      scores.removeScoresFromList();
-      updateDomAndLocalStorage();
-      removeScore();
-    });
-  
+  removeButton.addEventListener('click', () => {
+    scores.removeScoresFromList();
+    updateDomAndLocalStorage();
+    removeScore();
+  });
 }
 
 function getFromLocalStorage() {
