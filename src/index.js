@@ -4,8 +4,8 @@ import Score from './individualScore';
 
 const list = document.querySelector('ul');
 const form = document.querySelector('form');
-const name = document.querySelector('#name');
-const points = document.querySelector('#points');
+const user = document.querySelector('#user');
+const score = document.querySelector('#score');
 const modalContainer = document.querySelector('.modal-container');
 
 const scores = new Scores();
@@ -22,9 +22,10 @@ function addToLocalStorage(scores) {
   localStorage.setItem('scores', JSON.stringify(scores));
 }
 
-function appendScoresToList() {
+function appendScoresToList(scores) {
   list.innerHTML = '';
-  scores.scoreList.forEach((score, index) => {
+  console.log(scores);
+  scores.scoreList.forEach((player, index) => {
     const li = document.createElement('li');
 
     if (index % 2 === 1) {
@@ -32,15 +33,15 @@ function appendScoresToList() {
     }
 
     li.innerHTML = `
-    <p>"<span>${score.name}</span>" </p>
-    <p>: ${score.points}</p>
+    <p>"<span>${player.user}</span>" </p>
+    <p>: ${player.score}</p>
     `;
     list.appendChild(li);
   });
 }
 
-function updateDomAndLocalStorage() {
-  appendScoresToList();
+function updateDomAndLocalStorage(scores) {
+  appendScoresToList(scores);
   localStorage.clear();
   addToLocalStorage(scores);
   checkIfEmpty();
@@ -49,37 +50,34 @@ function updateDomAndLocalStorage() {
 function removeScore() {
   const removeButton = document.querySelector('.refresh');
   removeButton.addEventListener('click', () => {
-    scores.removeScoresFromList();
-    updateDomAndLocalStorage();
-    removeScore();
+    scores.removeScoresFromList(updateDomAndLocalStorage);
   });
 }
 
 function getFromLocalStorage() {
   if (localStorage.length !== 0) {
     const scoresFromLocStg = JSON.parse(localStorage.getItem('scores'));
-    scoresFromLocStg.scoreList.forEach((score) => {
-      scores.scoreList.push(score);
+    scoresFromLocStg.scoreList.forEach((player) => {
+      scores.scoreList.push(player);
     });
-    updateDomAndLocalStorage();
-    removeScore();
+    updateDomAndLocalStorage(scores);
   }
+  removeScore();
 }
 
 getFromLocalStorage();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const newScore = new Score(name.value, points.value);
-  name.value = '';
-  points.value = '';
-  scores.addNewScore(newScore);
-  updateDomAndLocalStorage();
+  const newScore = new Score(user.value, score.value);
+  user.value = '';
+  score.value = '';
+  scores.addNewScore(newScore, updateDomAndLocalStorage);
+  // updateDomAndLocalStorage(scores);
   modalContainer.style.display = 'flex';
   setTimeout(() => {
     modalContainer.style.display = 'none';
   }, 2000);
-  removeScore();
 });
 
 setInterval(() => {
