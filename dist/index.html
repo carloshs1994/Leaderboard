@@ -1,1 +1,48 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wbpack Exercise</title><script defer="defer" src="main.js"></script></head><body><h1>Hello webpack!</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+<script defer src="main.js"></script></head>
+<body>
+  <header>
+    <h2>Leaderboard</h2>
+  </header>
+
+  <main>
+    <section id="list-section">
+      <div class="list-header">
+        <h1>Recent Scores</h1>
+        <button class="refresh" type="submit">Refresh</button>
+      </div>
+      <ul></ul>
+    </section>
+
+    <section id="form-section">
+      <h1>Add your Score</h1>
+      <form id="form" class="form" action="#" method="post">
+        <input type="text" id="name" name="name" placeholder="Your name" required maxlength="100">
+        <input type="text" id="points" name="points" placeholder="Your score" required maxlength="100">
+        <button id="add-btn" class="add" type="submit">Submit</button>
+      </form>
+      <article class="modal-container">
+        <p>Your book has been added</p>
+      </article>
+    </section>
+
+    <section id="contact-section">
+      <h1>Contact information</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita temporibus ipsam eius exercitatdje autem alias deserunt nam illo quos a.</p>
+      <div><strong>.   </strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+      <div><strong>.   </strong>Lorem ipsum dolor sit amet.</div>
+      <div><strong>.   </strong>Lorem ipsum dolor, sit amet consectetur!</div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Copyright 2022</h2>
+    <p class="time-and-date"></p>
+  </footer>
+</body>
+</html>
