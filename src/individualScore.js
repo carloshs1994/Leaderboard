@@ -1,6 +1,6 @@
 export default class Score {
-  constructor(name, points) {
-    this.name = name;
-    this.points = points;
+  constructor(user, score) {
+    this.user = user;
+    this.score = score;
   }
 }
