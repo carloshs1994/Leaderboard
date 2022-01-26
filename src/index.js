@@ -10,19 +10,19 @@ const modalContainer = document.querySelector('.modal-container');
 
 const scores = new Scores();
 
-function checkIfEmpty() {
+const checkIfEmpty = () => {
   if (scores.scoreList.length !== 0) {
     list.style.display = 'block';
   } else {
     list.style.display = 'none';
   }
-}
+};
 
-function addToLocalStorage(scores) {
+const addToLocalStorage = (scores) => {
   localStorage.setItem('scores', JSON.stringify(scores));
-}
+};
 
-function appendScoresToList(scores) {
+const appendScoresToList = (scores) => {
   list.innerHTML = '';
   scores.scoreList.forEach((player, index) => {
     const li = document.createElement('li');
@@ -37,23 +37,23 @@ function appendScoresToList(scores) {
     `;
     list.appendChild(li);
   });
-}
+};
 
-function updateDomAndLocalStorage(scores) {
+const updateDomAndLocalStorage = (scores) => {
   appendScoresToList(scores);
   localStorage.clear();
   addToLocalStorage(scores);
   checkIfEmpty();
-}
+};
 
-function removeScore() {
+const removeScore = () => {
   const removeButton = document.querySelector('.refresh');
   removeButton.addEventListener('click', () => {
     scores.removeScoresFromList(updateDomAndLocalStorage);
   });
-}
+};
 
-function getFromLocalStorage() {
+const getFromLocalStorage = () => {
   if (localStorage.length !== 0) {
     const scoresFromLocStg = JSON.parse(localStorage.getItem('scores'));
     scoresFromLocStg.scoreList.forEach((player) => {
@@ -62,7 +62,7 @@ function getFromLocalStorage() {
     updateDomAndLocalStorage(scores);
   }
   removeScore();
-}
+};
 
 getFromLocalStorage();
 
