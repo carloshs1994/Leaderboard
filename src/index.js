@@ -24,7 +24,6 @@ function addToLocalStorage(scores) {
 
 function appendScoresToList(scores) {
   list.innerHTML = '';
-  console.log(scores);
   scores.scoreList.forEach((player, index) => {
     const li = document.createElement('li');
 
@@ -73,7 +72,6 @@ form.addEventListener('submit', (event) => {
   user.value = '';
   score.value = '';
   scores.addNewScore(newScore, updateDomAndLocalStorage);
-  // updateDomAndLocalStorage(scores);
   modalContainer.style.display = 'flex';
   setTimeout(() => {
     modalContainer.style.display = 'none';
