@@ -5,7 +5,7 @@ ul li {
   width: auto;
   align-items: center;
   padding: 0 10px;
-  background-color: #ddd;
+  background-color: #555;
 }
 
 .remove {
@@ -19,8 +19,10 @@ ul {
   padding-left: 0;
   border: 5px solid #444;
   border-radius: 10px;
+  max-height: 400px;
   display: none;
-  margin-bottom: 150px;
+  overflow-y: auto;
+  box-shadow: rgba(58, 136, 28, 0.4) 5px 5px;
 }
 
 button,
@@ -40,10 +42,13 @@ main {
 
 body {
   margin: 0;
+  background-color: #111;
+  color: #109437;
 }
 
 input {
   margin-bottom: 10px;
+  box-shadow: rgba(58, 136, 28, 0.4) 5px 5px;
 }
 
 #list-section {
@@ -84,27 +89,38 @@ form input {
   width: calc(100% - 10px);
   height: 40px;
   padding: 0 0 0 10px;
-  border: 2px solid #444;
+  border: 3px solid #444;
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 20px;
+  background-color: #222;
+  color: #109437;
 }
 
 form input::placeholder {
   font-style: italic;
-  color: #222;
+  color: #109437;
   font-size: 20px;
+}
+
+button {
+  box-shadow: rgba(58, 136, 28, 0.4) 5px 5px;
+  border: 2px solid #444;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: 0.5s;
+  background-color: #222;
+  color: #109437;
+  padding: 7px 18px;
+  font-size: 20px;
+  border-radius: 7px;
 }
 
 #add-btn {
   float: right;
-  padding: 7px 18px;
-  font-size: 20px;
-  border-radius: 7px;
   cursor: pointer;
-  transition: 0.5s;
 }
 
+button:hover,
 #add-btn:hover {
   background-color: #109437;
   color: white;
@@ -114,15 +130,8 @@ p {
   font-family: sans-serif;
 }
 
-.bg-white {
-  background-color: white;
-}
-
-button {
-  box-shadow: rgba(0, 0, 0, 0.4) 5px 5px;
-  border: 2px solid #444;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border-radius: 3px;
+.bg-black {
+  background-color: #333;
 }
 
 header,
@@ -216,7 +225,7 @@ article {
 }
 
 .time-and-date {
-  color: #000;
+  color: #109437;
   font-family: monospace;
   font-size: 15px;
   font-weight: bolder;
