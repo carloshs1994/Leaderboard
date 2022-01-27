@@ -28,7 +28,7 @@ const appendScoresToList = (scores) => {
     const li = document.createElement('li');
 
     if (index % 2 === 1) {
-      li.classList = 'bg-white';
+      li.classList = 'bg-black';
     }
 
     li.innerHTML = `
