@@ -5,7 +5,7 @@
 
 > This is a Leaderboard list app. It was created using WebPack and ES6 features, notably modules, JavaScript, CSS3 and HTML Check the live demo to try
 
-![screenshot](./screenshot.png)
+![screenshot](./screenshot-dark.png)
 
 ### Check it out
 
